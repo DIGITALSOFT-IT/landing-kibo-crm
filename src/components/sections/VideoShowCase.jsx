@@ -1,4 +1,3 @@
-import React from 'react';
 import { PlayCircle, Sparkles, MessageSquareCode, Bot, Handshake } from 'lucide-react';
 
 const steps = [

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Bot, Menu, X, LogIn, UserPlus } from 'lucide-react';
 import { CRM_ROUTES } from '../../config/crm';
 

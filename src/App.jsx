@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bot, MessageSquare, LogIn, UserPlus } from 'lucide-react';
 import Navbar from './components/sections/Navbar';
 import Hero from './components/sections/Hero';
