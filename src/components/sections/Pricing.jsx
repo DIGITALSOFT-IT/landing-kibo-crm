@@ -11,18 +11,37 @@ import {
 } from 'lucide-react';
 import { CRM_ROUTES } from '../../config/crm';
 
+// Mismos precios y cupos que los planes del CRM (panel SuperAdmin → Planes). Si cambian allá,
+// se cambian aquí: la landing no los lee del CRM.
 const plans = [
+  {
+    slug: 'basico',
+    name: 'Básico',
+    tagline: 'Para empezar',
+    price: '$69.000',
+    description: 'Para un negocio pequeño o una marca personal que atiende por WhatsApp.',
+    features: [
+      '1 Número oficial (Meta Cloud API)',
+      'Hasta 2 Agentes conectados',
+      '150 Conversaciones / mes',
+      'Asistente con IA incluido',
+      '1 Módulo Vertical a elección',
+      'Menú interactivo y envío de PDFs'
+    ],
+    highlighted: false,
+    button: 'Comenzar con Básico',
+  },
   {
     slug: 'emprendedor',
     name: 'Emprendedor',
     tagline: 'Para iniciar con paso firme',
-    price: '$89.000',
+    price: '$99.000',
     description: 'Ideal para pequeños negocios, marcas personales y profesionales independientes.',
     features: [
       '1 Número oficial (Meta Cloud API)',
       'Hasta 2 Agentes conectados',
-      '1.000 Conversaciones / mes',
-      '1.5M Tokens de IA (~1.5k respuestas)',
+      '300 Conversaciones / mes',
+      'Asistente con IA incluido',
       '1 Módulo Vertical a elección',
       'Menú interactivo y envío de PDFs'
     ],
@@ -33,13 +52,13 @@ const plans = [
     slug: 'crecimiento',
     name: 'Crecimiento',
     tagline: 'El favorito de las PyMEs',
-    price: '$199.000',
+    price: '$219.000',
     description: 'El plan insignia para comercios activos que quieren escalar cierres con IA + Equipo.',
     features: [
       '2 Números oficiales de WhatsApp',
       'Hasta 5 Agentes simultáneos',
-      '2.500 Conversaciones / mes',
-      '4.0M Tokens de IA (~4k respuestas)',
+      '600 Conversaciones / mes',
+      'Asistente con IA incluido',
       'Tablero Kanban de Ventas en vivo',
       'Handoff Humano y Calificación IA'
     ],
@@ -50,13 +69,13 @@ const plans = [
     slug: 'pro',
     name: 'Pro',
     tagline: 'Máxima capacidad y control',
-    price: '$449.000',
+    price: '$499.000',
     description: 'Para operaciones de alto volumen, franquicias, cadenas y campañas políticas.',
     features: [
       'Hasta 5 Números de WhatsApp',
       'Hasta 15 Agentes en plataforma',
-      '6.000 Conversaciones / mes',
-      '10M Tokens de IA (~10k respuestas)',
+      '1.300 Conversaciones / mes',
+      'IA avanzada (modelo premium incluido)',
       'Módulo Avanzado (PQRS, Zonas, Rutas)',
       'Auditoría avanzada y métricas completas'
     ],
@@ -129,14 +148,14 @@ export default function Pricing() {
         </div>
 
         {/* Tarjetas de Planes */}
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
           {plans.map((plan) => {
             const registerPlanUrl = CRM_ROUTES.registerWithPlan(plan.slug);
 
             return (
               <div
                 key={plan.slug}
-                className={`rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-300 ${
+                className={`rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 ${
                   plan.highlighted
                     ? 'bg-slate-950 text-white border-2 border-indigo-500 shadow-2xl shadow-indigo-950/30 lg:-translate-y-3 relative'
                     : 'bg-white text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl'
@@ -150,7 +169,7 @@ export default function Pricing() {
                 )}
 
                 <div>
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <h3 className="text-2xl font-extrabold">{plan.name}</h3>
                     <span
                       className={`text-xs font-semibold px-3 py-1 rounded-full ${
@@ -173,7 +192,7 @@ export default function Pricing() {
 
                   <div className="mb-8 pb-6 border-b border-current/10">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+                      <span className="text-4xl xl:text-[2.5rem] font-extrabold tracking-tight">
                         {plan.price}
                       </span>
                       <span
