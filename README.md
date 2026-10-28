@@ -1,16 +1,41 @@
-# React + Vite
+# Landing de Kibo CRM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Página pública de Kibo CRM: **https://kibocrm.jurytechsolutions.com** (Vercel).
 
-Currently, two official plugins are available:
+El CRM es un proyecto aparte, en **https://kibo.jurytechsolutions.com** (repositorio
+`JuryTechSolutions/crm-whatsapp`). Esta página solo enlaza a él: no llama a su API ni guarda datos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Enlaces al CRM
 
-## React Compiler
+Todos salen de `src/config/crm.js`:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Botón | Lleva a |
+|---|---|
+| Iniciar sesión | `https://kibo.jurytechsolutions.com/login` |
+| Crear cuenta | `https://kibo.jurytechsolutions.com/register` |
+| Elegir un plan | `https://kibo.jurytechsolutions.com/register?plan=basico` (el CRM lo resalta en Facturación) |
 
-## Expanding the ESLint configuration
+La URL del CRM se puede cambiar con la variable `VITE_CRM_URL` (en Vercel: Settings → Environment
+Variables). Sin ella: en desarrollo usa `http://localhost:3000`; en producción, el CRM publicado.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Desarrollo
+
+```bash
+npm install
+npm run dev      # http://localhost:4200
+npm run lint
+npm run build    # deja la página en dist/
+```
+
+## Despliegue (Vercel)
+
+- Proyecto de Vercel conectado a este repositorio; `vercel.json` ya trae la compilación (Vite), las
+  cabeceras de seguridad y la caché de `/assets`.
+- Rama de producción: `main`. Cada push a `main` publica; otras ramas dan una vista previa.
+- Dominio: `kibocrm.jurytechsolutions.com` → registro **CNAME** `kibocrm` en el DNS de
+  `jurytechsolutions.com` (Hostinger) con el valor que indica Vercel en Settings → Domains.
+
+## Íconos
+
+`public/favicon.ico` (16–256 px), `public/icon-512.png` y `public/apple-touch-icon.png`: el logo de
+Kibo con las esquinas transparentes. Son los mismos del CRM.
