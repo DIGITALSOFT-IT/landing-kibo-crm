@@ -6,8 +6,10 @@ import {
   ArrowRight,
   UserPlus,
   Unlock,
-  Lock,
   LogIn,
+  Gift,
+  Zap,
+  CalendarCheck,
 } from 'lucide-react';
 import { CRM_ROUTES } from '../../config/crm';
 
@@ -88,21 +90,28 @@ const activationSteps = [
   {
     step: 'Paso 1',
     icon: <UserPlus className="w-5 h-5 text-indigo-600" />,
-    title: 'Selecciona tu Plan y Regístrate',
+    title: 'Elige tu Plan y Regístrate',
     desc: 'Al elegir un plan te llevamos al registro del CRM con tu plan preseleccionado.'
   },
   {
     step: 'Paso 2',
-    icon: <CreditCard className="w-5 h-5 text-emerald-600" />,
-    title: 'Facturación y Pago con Wompi',
-    desc: 'Tras registrarte pasas directo a facturación para pagar seguro vía Wompi (PSE, Nequi o Tarjeta).'
+    icon: <Gift className="w-5 h-5 text-emerald-600" />,
+    title: 'Prueba Gratis 14 Días',
+    desc: 'Tu cuenta arranca con 14 días gratis y 50 conversaciones para probar el asistente con clientes reales, sin pagar nada.'
   },
   {
     step: 'Paso 3',
     icon: <Unlock className="w-5 h-5 text-amber-600" />,
-    title: 'Desbloqueo Automático Inmediato',
-    desc: 'Apenas Wompi confirma tu pago, tu plan se asigna y se desbloquean todos tus módulos al instante.'
+    title: 'Paga con Wompi y Sigue Atendiendo',
+    desc: 'Cuando quieras, pagas tu plan en Facturación (PSE, Nequi o Tarjeta) y se activa al instante.'
   }
+];
+
+// Mismas recargas que el CRM: suman conversaciones al mes en curso, sin cambiar de plan
+const recharges = [
+  { name: 'Recarga S', conversations: '100', price: '$45.000' },
+  { name: 'Recarga M', conversations: '300', price: '$119.000' },
+  { name: 'Recarga L', conversations: '800', price: '$329.000' },
 ];
 
 export default function Pricing() {
@@ -118,8 +127,18 @@ export default function Pricing() {
             Elige tu plan, regístrate y activa tus módulos al instante
           </h2>
           <p className="text-lg sm:text-xl text-slate-600">
-            Precios transparentes en pesos colombianos. Selecciona tu plan para crear tu cuenta e ir directo a facturación con Wompi.
+            Precios fijos en pesos colombianos. Empieza con 14 días gratis y paga tu plan con Wompi cuando quieras seguir.
           </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 py-1.5 px-4 rounded-full">
+              <Gift className="w-4 h-4" />
+              14 días gratis · 50 conversaciones
+            </span>
+            <span className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-800 py-1.5 px-4 rounded-full">
+              <CalendarCheck className="w-4 h-4" />
+              Plan anual: pagas 10 meses y usas 12
+            </span>
+          </div>
         </div>
 
         {/* Cómo funciona la compra y activación */}
@@ -242,7 +261,7 @@ export default function Pricing() {
                       plan.highlighted ? 'text-slate-400' : 'text-slate-500'
                     }`}
                   >
-                    Redirige al registro y pago seguro con Wompi
+                    Empieza con 14 días gratis · pago seguro con Wompi
                   </p>
                 </div>
               </div>
@@ -250,7 +269,34 @@ export default function Pricing() {
           })}
         </div>
 
-        {/* Nota sobre cuentas sin plan activo y acceso al Login/Registro */}
+        {/* Recargas: más conversaciones en el mes sin cambiar de plan */}
+        <div className="mt-12 max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-4 text-slate-900">
+            <Zap className="w-5 h-5 text-amber-500" />
+            <h3 className="text-lg sm:text-xl font-extrabold">
+              ¿Se te acabaron las conversaciones del mes? Recarga sin cambiar de plan
+            </h3>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {recharges.map((pack) => (
+              <div
+                key={pack.name}
+                className="bg-white border border-slate-200 rounded-2xl p-5 text-center shadow-sm"
+              >
+                <p className="text-sm font-bold text-slate-500">{pack.name}</p>
+                <p className="text-2xl font-extrabold text-slate-900 mt-1">{pack.price}</p>
+                <p className="text-sm text-slate-600 mt-1">
+                  +{pack.conversations} conversaciones
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-center text-slate-500 mt-3">
+            Se compran desde Facturación en el CRM y se suman al cupo del mes en curso.
+          </p>
+        </div>
+
+        {/* Nota sobre pagos y acceso al Login/Registro */}
         <div className="mt-12 bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex items-start gap-4">
@@ -262,7 +308,7 @@ export default function Pricing() {
                   Pagos 100% Seguros con Wompi Bancolombia y Activación en Tiempo Real
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Aceptamos <strong>PSE, Nequi, Botón Bancolombia y Tarjetas</strong>. Si te registras sin completar la compra, tu cuenta se creará con los módulos bloqueados (<Lock className="w-3.5 h-3.5 inline text-slate-500 -mt-0.5" />) hasta que actives tu plan desde la sección de Facturación.
+                  Aceptamos <strong>PSE, Nequi, Botón Bancolombia y Tarjetas</strong>. Al registrarte empiezas tu prueba gratis de 14 días; cuando termine, activas tu plan desde la sección de Facturación para seguir atendiendo.
                 </p>
               </div>
             </div>

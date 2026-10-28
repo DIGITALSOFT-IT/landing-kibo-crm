@@ -52,7 +52,7 @@ const features = [
     iconBg: 'bg-amber-50 border-amber-100',
     title: 'Adaptado a Tu Industria',
     description:
-      'E-commerce, restaurantes, clínicas, inmobiliarias o campañas políticas. Kibo activa módulos específicos según tu modelo de negocio.'
+      'E-commerce, restaurantes, clínicas, inmobiliarias o campañas políticas (perfilado de votantes, eventos con inscripción y PQRS con radicado). Kibo activa módulos específicos según tu modelo de negocio.'
   },
   {
     badge: 'Hecho para LATAM',
