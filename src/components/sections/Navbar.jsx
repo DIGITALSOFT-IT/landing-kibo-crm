@@ -13,10 +13,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Demo en Video', href: '#video-kibo' },
-    { name: 'Características', href: '#caracteristicas' },
-    { name: 'Planes y Precios', href: '#planes' },
-    { name: 'Programa Partners', href: '#partners' },
+    { name: 'Demo en Video', href: '/#video-kibo' },
+    { name: 'Características', href: '/#caracteristicas' },
+    { name: 'Planes y Precios', href: '/#planes' },
+    { name: 'Programa Partners', href: '/#partners' },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="/" aria-label="Kibo CRM — Inicio" className="flex items-center gap-3 group">
           <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-kibo-green to-emerald-600 text-slate-950 shadow-lg shadow-kibo-green/25 group-hover:scale-105 transition-transform">
             <Bot className="w-6 h-6 stroke-[2.2]" />
             <span className="absolute -top-1 -right-1 flex h-3 w-3">

@@ -1,7 +1,7 @@
 import { ArrowRight, BadgePercent, Coins, Repeat, Handshake } from 'lucide-react';
 
 export default function PartnerCTA() {
-  const phoneNumber = "573152955017";
+  const phoneNumber = "573204084584";
   const partnerMessage = "Hola, me interesa unirme al programa de Partners de Kibo CRM para ser distribuidor oficial. ¿Me pueden dar más información sobre cómo funciona la comisión del 10%?";
   const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(partnerMessage)}`;
 

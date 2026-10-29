@@ -65,6 +65,7 @@ export default function VideoShowcase() {
               className="w-full h-auto aspect-video object-cover bg-slate-950"
               controls
               preload="metadata"
+              title="Demo de Kibo CRM: agente de IA para WhatsApp y tablero Kanban de ventas"
             >
               <source src="/kibo-promo.mp4" type="video/mp4" />
               Tu navegador no soporta la reproducción de videos.

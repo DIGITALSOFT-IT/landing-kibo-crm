@@ -5,40 +5,51 @@ import VideoShowcase from './components/sections/VideoShowCase';
 import Features from './components/sections/Features';
 import Pricing from './components/sections/Pricing';
 import PartnerCTA from './components/sections/PartnerCTA';
+import LegalPage from './components/sections/LegalPage';
 import { CRM_ROUTES } from './config/crm';
+import { PAGES } from './config/pages';
 
-function App() {
-  const phoneNumber = "573152955017";
+function App({ path = '/' }) {
+  const page = PAGES.find((name) => path.replace(/\/+$/, '') === `/${name}`);
+  const phoneNumber = "573204084584";
   const floatMessage = "¡Hola! Estoy visitando la web de Kibo CRM y me gustaría recibir asesoría.";
   const waFloatUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(floatMessage)}`;
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       <Navbar />
-      <Hero />
-      <VideoShowcase />
-      <Features />
-      <Pricing />
-      <PartnerCTA />
+      <main>
+        {page ? (
+          <LegalPage page={page} />
+        ) : (
+          <>
+            <Hero />
+            <VideoShowcase />
+            <Features />
+            <Pricing />
+            <PartnerCTA />
+          </>
+        )}
+      </main>
 
       {/* Footer mejorado */}
       <footer className="bg-kibo-dark text-slate-400 py-14 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/10">
-            <div className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
               <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-kibo-green text-slate-950">
                 <Bot className="w-5 h-5 stroke-[2.2]" />
               </div>
               <span className="text-xl font-extrabold text-white">
                 Kibo <span className="text-kibo-green">CRM</span>
               </span>
-            </div>
+            </a>
 
             <div className="flex flex-wrap justify-center items-center gap-6 text-sm font-medium">
-              <a href="#video-kibo" className="hover:text-white transition">Demo en Video</a>
-              <a href="#caracteristicas" className="hover:text-white transition">Características</a>
-              <a href="#planes" className="hover:text-white transition">Planes</a>
-              <a href="#partners" className="hover:text-white transition">Partners</a>
+              <a href="/#video-kibo" className="hover:text-white transition">Demo en Video</a>
+              <a href="/#caracteristicas" className="hover:text-white transition">Características</a>
+              <a href="/#planes" className="hover:text-white transition">Planes</a>
+              <a href="/#partners" className="hover:text-white transition">Partners</a>
               <a
                 href={CRM_ROUTES.login}
                 className="inline-flex items-center gap-1.5 text-slate-200 hover:text-kibo-green transition"
@@ -59,8 +70,8 @@ function App() {
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
             <p>© 2026 Kibo CRM. Tu equipo de ventas automatizado con IA en WhatsApp.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-slate-300 transition">Términos y Condiciones</a>
-              <a href="#" className="hover:text-slate-300 transition">Política de Privacidad</a>
+              <a href="/terminos/" className="hover:text-slate-300 transition">Términos y Condiciones</a>
+              <a href="/privacidad/" className="hover:text-slate-300 transition">Política de Privacidad</a>
             </div>
           </div>
         </div>

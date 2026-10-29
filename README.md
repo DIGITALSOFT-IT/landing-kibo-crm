@@ -35,6 +35,17 @@ npm run build    # deja la página en dist/
 - Dominio: `kibocrm.jurytechsolutions.com` → registro **CNAME** `kibocrm` en el DNS de
   `jurytechsolutions.com` (Hostinger) con el valor que indica Vercel en Settings → Domains.
 
+## SEO
+
+- `npm run build` prerenderiza la landing y las páginas legales (`/terminos/`, `/privacidad/`) a HTML
+  estático (`scripts/prerender.js`), para que Google lea el contenido sin ejecutar JavaScript.
+- El mismo build genera `dist/robots.txt` y `dist/sitemap.xml` con el dominio de `VITE_SITE_URL`
+  (definido en `.env.production`).
+- Metadatos, Open Graph y datos estructurados (Schema.org) están en `index.html`. Si cambian los precios
+  en `src/components/sections/Pricing.jsx`, actualiza también los `offers` y la descripción de ese archivo.
+- Imagen para compartir: `public/og-image.png` (1200×630).
+- Datos del responsable en Términos y Privacidad: `src/config/legal.js`.
+
 ## Íconos
 
 `public/favicon.ico` (16–256 px), `public/icon-512.png` y `public/apple-touch-icon.png`: el logo de
