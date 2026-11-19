@@ -42,7 +42,7 @@ const plans = [
       '1 línea de WhatsApp',
       'Dueño + 2 agentes',
       '300 conversaciones / mes',
-      'El doble de capacidad de IA que Básico',
+      'Asistente con IA incluido',
       'Todos los módulos de tu tipo de negocio'
     ],
     highlighted: false,
@@ -58,7 +58,7 @@ const plans = [
       '2 líneas de WhatsApp',
       'Dueño + 5 agentes',
       '600 conversaciones / mes',
-      '4 veces la capacidad de IA de Básico',
+      'Asistente con IA incluido',
       'Carga tu catálogo con IA desde fotos o PDF (3 / mes)',
       'Todos los módulos de tu tipo de negocio'
     ],
