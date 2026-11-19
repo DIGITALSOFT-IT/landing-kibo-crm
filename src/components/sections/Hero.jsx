@@ -88,7 +88,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <Zap className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Desbloqueo automático de módulos al pagar</span>
+                <span>Activación automática al pagar</span>
               </div>
             </div>
           </div>

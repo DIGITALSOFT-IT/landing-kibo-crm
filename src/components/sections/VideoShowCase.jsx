@@ -5,7 +5,7 @@ const steps = [
     step: '01',
     icon: <MessageSquareCode className="w-5 h-5 text-kibo-green" />,
     title: 'Conecta tu WhatsApp Oficial',
-    desc: 'Integramos tu número con la API Oficial de Meta y personalizamos el tono y catálogo de tu negocio.'
+    desc: 'Conectas tu número de WhatsApp Business a la API Oficial de Meta y configuras el tono y el catálogo de tu negocio.'
   },
   {
     step: '02',

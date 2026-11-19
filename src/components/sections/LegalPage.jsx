@@ -33,7 +33,7 @@ const documents = {
         body: [
           'Toda cuenta nueva inicia con una prueba gratuita de 14 días con 50 conversaciones, sin cobro. Al terminar la prueba, para seguir usando el servicio debes activar un plan desde la sección de Facturación.',
           'Los planes se cobran en pesos colombianos (COP) según los precios publicados en este sitio, de forma mensual o anual (el plan anual equivale a 10 meses de pago por 12 de uso). Los pagos se procesan a través de Wompi (PSE, Nequi, Botón Bancolombia o tarjeta). El plan se activa cuando la pasarela confirma el pago.',
-          'Los límites de cada plan (números, agentes, conversaciones y tokens de IA) se reinician en cada periodo de facturación y no son acumulables. Puedes comprar recargas de conversaciones, que se suman al cupo del mes en curso y no se trasladan al siguiente. Si no se renueva el pago, el acceso a los módulos de pago puede suspenderse.',
+          'Los límites de cada plan (líneas de WhatsApp, agentes, conversaciones y capacidad de IA) se reinician en cada periodo de facturación y no son acumulables. Puedes comprar recargas de conversaciones, que se suman al cupo del mes en curso y no se trasladan al siguiente. Si no se renueva el pago, el acceso a la plataforma puede suspenderse.',
           'Podemos actualizar los precios notificándote con anticipación; el cambio aplicará desde el siguiente periodo de facturación.',
         ],
       },

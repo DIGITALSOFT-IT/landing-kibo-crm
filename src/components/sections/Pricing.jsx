@@ -23,12 +23,11 @@ const plans = [
     price: '$69.000',
     description: 'Para un negocio pequeño o una marca personal que atiende por WhatsApp.',
     features: [
-      '1 Número oficial (Meta Cloud API)',
-      'Hasta 2 Agentes conectados',
-      '150 Conversaciones / mes',
+      '1 línea de WhatsApp',
+      'Dueño + 2 agentes',
+      '150 conversaciones / mes',
       'Asistente con IA incluido',
-      '1 Módulo Vertical a elección',
-      'Menú interactivo y envío de PDFs'
+      'Todos los módulos de tu tipo de negocio'
     ],
     highlighted: false,
     button: 'Comenzar con Básico',
@@ -40,12 +39,11 @@ const plans = [
     price: '$99.000',
     description: 'Ideal para pequeños negocios, marcas personales y profesionales independientes.',
     features: [
-      '1 Número oficial (Meta Cloud API)',
-      'Hasta 2 Agentes conectados',
-      '300 Conversaciones / mes',
-      'Asistente con IA incluido',
-      '1 Módulo Vertical a elección',
-      'Menú interactivo y envío de PDFs'
+      '1 línea de WhatsApp',
+      'Dueño + 2 agentes',
+      '300 conversaciones / mes',
+      'El doble de capacidad de IA que Básico',
+      'Todos los módulos de tu tipo de negocio'
     ],
     highlighted: false,
     button: 'Comenzar con Emprendedor',
@@ -57,12 +55,12 @@ const plans = [
     price: '$219.000',
     description: 'El plan insignia para comercios activos que quieren escalar cierres con IA + Equipo.',
     features: [
-      '2 Números oficiales de WhatsApp',
-      'Hasta 5 Agentes simultáneos',
-      '600 Conversaciones / mes',
-      'Asistente con IA incluido',
-      'Tablero Kanban de Ventas en vivo',
-      'Handoff Humano y Calificación IA'
+      '2 líneas de WhatsApp',
+      'Dueño + 5 agentes',
+      '600 conversaciones / mes',
+      '4 veces la capacidad de IA de Básico',
+      'Carga tu catálogo con IA desde fotos o PDF (3 / mes)',
+      'Todos los módulos de tu tipo de negocio'
     ],
     highlighted: true,
     button: 'Comenzar con Crecimiento',
@@ -74,12 +72,12 @@ const plans = [
     price: '$499.000',
     description: 'Para operaciones de alto volumen, franquicias, cadenas y campañas políticas.',
     features: [
-      'Hasta 5 Números de WhatsApp',
-      'Hasta 15 Agentes en plataforma',
-      '1.300 Conversaciones / mes',
+      '5 líneas de WhatsApp',
+      'Dueño + 15 agentes',
+      '1.300 conversaciones / mes',
       'IA avanzada (modelo premium incluido)',
-      'Módulo Avanzado (PQRS, Zonas, Rutas)',
-      'Auditoría avanzada y métricas completas'
+      'Carga tu catálogo con IA desde fotos o PDF (3 / mes)',
+      'Todos los módulos de tu tipo de negocio'
     ],
     highlighted: false,
     button: 'Comenzar con Pro',
@@ -124,7 +122,7 @@ export default function Pricing() {
             Activación Automática 100% Online
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-            Elige tu plan, regístrate y activa tus módulos al instante
+            Elige tu plan, regístrate y empieza a atender al instante
           </h2>
           <p className="text-lg sm:text-xl text-slate-600">
             Precios fijos en pesos colombianos. Empieza con 14 días gratis y paga tu plan con Wompi cuando quieras seguir.
@@ -267,6 +265,22 @@ export default function Pricing() {
               </div>
             );
           })}
+        </div>
+
+        {/* Lo que traen todos los planes y cómo cobra Meta */}
+        <div className="mt-10 max-w-5xl mx-auto bg-slate-50 border border-slate-200/90 rounded-2xl p-5 sm:p-6 text-sm text-slate-700 space-y-2">
+          <p>
+            <strong className="text-slate-900">Todos los planes incluyen</strong> todos los módulos
+            de tu tipo de negocio, tablero Kanban, traspaso del chat a un asesor humano,
+            automatizaciones, menú interactivo y envío de PDFs. Los planes se diferencian por
+            líneas de WhatsApp, agentes, conversaciones y capacidad de IA.
+          </p>
+          <p>
+            <strong className="text-slate-900">Tu número, tu cuenta de Meta.</strong> Conectas tu
+            número de WhatsApp Business a la API oficial de Meta. Los mensajes de plantilla (por
+            ejemplo, difusiones o promociones) los cobra Meta directamente en la cuenta de WhatsApp de
+            tu negocio; responder a quien te escribe dentro de las 24 horas no tiene ese costo.
+          </p>
         </div>
 
         {/* Recargas: más conversaciones en el mes sin cambiar de plan */}
